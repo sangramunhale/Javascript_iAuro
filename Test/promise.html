@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function func1() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(() => {
+            const error = true;
+            if (!error) {
+              console.log("Function : Your promise has been resovled");
+              resolve();
+            } else {
+              console.log("Function : Your promise has not been resovled");
+              reject("sorry not fulfilled");
+            }
+          }, 2000);
+        });
+      }
+
+      func1()
+        .then(function () {
+          console.log("Sam : Thanks for resolved");
+        })
+        .catch(function (error) {
+          console.log("Sam : Very Bad Bro " + error);
+        });
+    </script>
+  </body>
+</html>
